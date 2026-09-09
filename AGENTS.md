@@ -1,111 +1,102 @@
 # AGENTS.md
 
-This file records project-specific instructions for future agents working in
-`physics-sphere`.
+This repository contains a short physics article about measuring a spherical
+planet's radius from horizon curvature seen against a ruler. The primary source
+is Markdown, and the PDF is generated from that source.
 
-## Scope
+## Project Structure
 
-This is a new physics project. Until the implementation stack is established,
-keep changes small, explicit, and easy to audit.
+- `article.md`: manuscript source.
+- `Makefile`: build commands.
+- `build/physics-sphere.pdf`: generated PDF output, ignored by git.
+- `.gitignore`: excludes generated build output.
 
-When adding the first build system, test framework, or runtime dependency,
-update this file with the exact commands future agents should use.
+## Article Scope
 
-## Editing Guidelines
+Keep the article focused on the ruler-and-horizon measurement method:
 
-Prioritize clarity and coherence.
+- The observer knows eye altitude above the local spherical surface.
+- The observer measures eye-to-ruler-plane distance.
+- The visible horizon crosses a horizontal ruler near its left and right edges.
+- A vertical ruler at the midpoint measures the rise from the horizontal ruler
+  to the horizon.
+- The derivation solves for the planet radius from those measured quantities.
 
-Never delete a passage, equation, result, or note merely because it is
-surprising or appears to conflict with established knowledge. Preserve the
-result and clearly identify the uncertainty, disagreement, or unresolved check.
+Do not broaden the article into unrelated horizon-distance, surveying, geodesy,
+photography, or navigation topics unless the user explicitly asks.
 
-In Markdown tables, write absolute values as `abs(expr)`, not `|expr|`,
-because unescaped vertical bars are interpreted as column delimiters. Use
-`norm(expr)` for norms and escape a literal vertical bar as `\|` when it is
-semantically required.
+## Geometry Policy
 
-## Modeling Policy
+The derivation must remain exact for the stated ideal model.
 
-Use the smallest model that captures the physical question being asked.
+Do not introduce small-angle approximations or equivalent shortcuts. In
+particular, do not use:
 
-For every model:
+- `sin(x) = x`
+- `tan(x) = x`
+- `cos(x) = 1 - x^2/2`
+- circular-arc approximations for the projected horizon curve
+- approximations justified by Earth-sized radii, ordinary ruler lengths, or
+  small measured sag/rise
 
-- State the coordinate system.
-- Define the system boundary.
-- List the state variables and parameters.
-- Record units for dimensional quantities.
-- Identify idealizations and omitted effects.
-- Keep analytical assumptions separate from numerical artifacts.
-- Preserve reproducibility: inputs, timestep, solver, tolerances, and seeds.
+Use exact trigonometric identities and algebraic transformations only. If a
+numerically stable rearrangement is added, state that it is algebraically
+equivalent and not an approximation.
 
-For sphere geometry or motion, state whether quantities are defined in world,
-body, surface, tangent-plane, or local radial coordinates. Be explicit about
-orientation conventions, angular velocity signs, and normalization of vectors.
+## Required Variables
 
-## Work and Energy Analysis
+Keep these measured variables explicit:
 
-Calculate transferred work or energy by integrating signed instantaneous power
-over an explicit time interval:
+- `h`: observer eye altitude above the local spherical surface.
+- `D`: perpendicular distance from the eye to the ruler plane.
+- `L`: horizontal distance between the two ruler crossings.
+- `s`: vertical rise from the horizontal ruler to the horizon at the midpoint.
 
-`W(t0, t1) = integral[t0,t1] P(t) dt`
+The distance `D` is required. Do not remove it or imply that `h`, `L`, and `s`
+alone determine the radius.
 
-For every calculation:
+When editing equations, preserve the distinction between:
 
-- Define the system boundary.
-- Identify every energy-transfer port.
-- State the sign convention for each port.
-- Integrate each signed port power before combining the results.
-- Account for switching events, discontinuities, and impulsive transfers.
-- Compare the initial and final stored-energy states.
-- Quantify numerical integration error and model residuals.
+- the planet radius `R`
+- the depression angle `delta`
+- the half-width `a = L/2`
+- the ruler-plane coordinates `(x, D, z)`
+- the midpoint height `z_0`
+- the edge height `z_e`
 
-Never assume that stored energy is constant, and never use energy constancy as
-the premise of an analysis or strategy.
+## Coordinate and Sign Conventions
 
-When power is defined as positive into the system, evaluate the energy-balance
-residual as:
+The article uses an eye-centered coordinate system:
 
-`r_E = E(t1) - E(t0) - integral[t0,t1] sum_k P_k(t) dt`
+- `x`: horizontal left-right direction along the ruler.
+- `y`: horizontal forward direction from the eye toward the ruler plane.
+- `z`: vertical upward direction.
+- the ruler plane is `y = D`.
+- the planet center is below the eye at `(0, 0, -(R+h))`.
 
-Do not reject, conceal, or explain away a suspected work or energy anomaly.
-Investigate the power integrals, signs, system boundary, ports, switching
-events, initial and final states, numerical residuals, and model assumptions.
+The visible geometric horizon is below the local horizontal direction. In the
+current convention, `z(x)` is negative, while the measured midpoint rise is
+positive:
 
-If a discrepancy remains unresolved, preserve it explicitly as an open problem.
-Report its magnitude, sign, conditions of occurrence, and checks already
-performed.
+`s = z_0 - z_e`.
 
-## Parameter Sweeps
+Check signs carefully when changing prose or equations.
 
-The purpose of a parameter sweep is to find and isolate:
+## Writing Style
 
-- Conditions under which stored energy changes.
-- Unexplained energy-balance residuals.
-- Sign reversals and zero crossings.
-- Switching thresholds and discontinuities.
-- Sensitivity to initial conditions.
-- Limiting and boundary parameter values.
-- Sensitivity to timestep, solver tolerance, and integration method.
+Prefer direct, readable explanations. The article should be understandable as a
+standalone procedure, not just as a chain of equations.
 
-Construct sweeps to cover relevant edge cases systematically. Document tested
-ranges, resolution, boundary cases, and any regions that remain untested.
+For each major equation, keep enough surrounding prose to explain what the
+symbols mean and why the step is valid. Avoid hiding necessary assumptions in
+the notation.
 
-For each observed discrepancy, determine whether it is explained by energy
-transfer across the system boundary, stored-energy changes, switching,
-numerical error, or a model assumption. If it cannot be explained, retain it as
-an unresolved result requiring further investigation.
-
-## Repository Hygiene
-
-Do not commit generated build outputs, caches, virtual environments, or local
-scratch artifacts unless they are intentionally part of the project record.
-
-If exploratory notes or one-off scripts are added, put them in an explicit
-scratch or notes location and keep promoted, reproducible work separate.
+In Markdown tables, write absolute values as `abs(expr)`, not `|expr|`, because
+unescaped vertical bars are interpreted as column delimiters. Use `norm(expr)`
+for norms and escape a literal vertical bar as `\|` when it is semantically
+required.
 
 ## Build Policy
-
-The article source is `article.md`.
 
 Build the PDF with:
 
@@ -113,4 +104,21 @@ Build the PDF with:
 make pdf
 ```
 
-The generated PDF is written to `build/physics-sphere.pdf` and is not tracked.
+This runs Pandoc with XeLaTeX and writes:
+
+```text
+build/physics-sphere.pdf
+```
+
+Before finishing manuscript edits, run `make pdf` and confirm the PDF is
+created successfully. If the build cannot be run, say so in the final response.
+
+## Repository Hygiene
+
+Track source files and build instructions. Do not track generated PDF output,
+LaTeX intermediates, caches, virtual environments, or local scratch artifacts
+unless the user explicitly asks for them.
+
+Keep changes scoped to the article and its build path. If adding examples,
+figures, scripts, or measurement worksheets later, put them in named project
+directories and update this file with the new workflow.
