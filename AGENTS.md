@@ -102,3 +102,15 @@ scratch artifacts unless they are intentionally part of the project record.
 
 If exploratory notes or one-off scripts are added, put them in an explicit
 scratch or notes location and keep promoted, reproducible work separate.
+
+## Build Policy
+
+The article source is `article.md`.
+
+Build the PDF with:
+
+```bash
+make pdf
+```
+
+The generated PDF is written to `build/physics-sphere.pdf` and is not tracked.
