@@ -7,6 +7,8 @@ is Markdown, and the PDF is generated from that source.
 ## Project Structure
 
 - `article.md`: manuscript source.
+- `figures/`: source illustrations and their generation prompts.
+- `notes/prior-work.md`: literature search and comparison with this method.
 - `Makefile`: build commands.
 - `build/physics-sphere.pdf`: generated PDF output, ignored by git.
 - `.gitignore`: excludes generated build output.
@@ -95,6 +97,34 @@ In Markdown tables, write absolute values as `abs(expr)`, not `|expr|`, because
 unescaped vertical bars are interpreted as column delimiters. Use `norm(expr)`
 for norms and escape a literal vertical bar as `\|` when it is semantically
 required.
+
+## Figures
+
+The observation setup is illustrated in `figures/measurement-setup.png`.
+Its generation prompt and provenance are recorded alongside it in
+`figures/measurement-setup.prompt.md`.
+
+Keep figure labels consistent with the manuscript: `D` is perpendicular to the
+vertical ruler plane, `L` spans the horizon crossings rather than the ruler
+ends, and `s` rises from the horizontal ruler's measuring edge to the horizon
+at the midpoint. Label any exaggerated drawing as schematic. A schematic
+does not replace the exact derivation; any plotted horizon curve must use the
+exact projection equation.
+
+Keep source illustration assets and prompts in git. Include referenced image
+files in the PDF target's dependencies in `Makefile`. Building the PDF uses the
+saved assets and does not call an image-generation service.
+
+## References
+
+Use the author-year links and reference list in `article.md`, with shared
+Markdown link definitions at the end. Cite sources beside the claims they
+support. The detailed comparisons are recorded in `notes/prior-work.md`.
+
+Distinguish equivalent geometry from related instruments and informal
+proposals. A search that does not find the complete two-ruler arrangement
+does not establish originality. Do not import approximations from cited
+sources into this article's exact derivation.
 
 ## Build Policy
 
