@@ -1,7 +1,7 @@
 ---
 title: "Measuring a Planet's Radius from Horizon Curvature"
 subtitle: "An exact two-ruler method"
-author: "physics-sphere"
+author: "Hob Nilre"
 date: "9 September 2026"
 abstract: |
   The visible horizon of a spherical planet is depressed below the observer's
