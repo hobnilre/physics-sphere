@@ -6,17 +6,17 @@ is Markdown, and the PDF is generated from that source.
 
 ## Project Structure
 
-- `article.md`: manuscript source, in standard article form (abstract,
-  numbered sections, numbered equations, reference list).
+- `planet-radius-with-two-rulers.md`: manuscript source, in standard article
+  form (abstract, numbered sections, numbered equations, reference list).
 - `preamble.tex`: LaTeX typographic preamble passed to Pandoc with
   `--include-in-header`. Presentation lives here, content lives in
-  `article.md`.
+  `planet-radius-with-two-rulers.md`.
 - `figures/`: source illustrations and their generation prompts.
 - `notes/prior-work.md`: literature search and comparison with this method.
 - `README.md`: entry point with links to the PDF and manuscript source.
 - `Makefile`: build commands.
-- `physics-sphere.pdf`: generated article PDF in the repository root, tracked
-  in git so readers can find it on GitHub.
+- `planet-radius-with-two-rulers.pdf`: generated article PDF in the repository
+  root, tracked in git so readers can find it on GitHub.
 - `.gitignore`: excludes scratch output in `build/`.
 
 ## Article Scope
@@ -155,9 +155,9 @@ saved assets and does not call an image-generation service.
 
 ## References
 
-Use the author-year links and reference list in `article.md`, with shared
-Markdown link definitions at the end. Cite sources beside the claims they
-support. The detailed comparisons are recorded in `notes/prior-work.md`.
+Use the author-year links and reference list in `planet-radius-with-two-rulers.md`,
+with shared Markdown link definitions at the end. Cite sources beside the claims
+they support. The detailed comparisons are recorded in `notes/prior-work.md`.
 
 Distinguish equivalent geometry from related instruments and informal
 proposals. A search that does not find the complete two-ruler arrangement
@@ -176,7 +176,7 @@ This runs Pandoc with XeLaTeX, including `preamble.tex` in the header, and
 writes:
 
 ```text
-physics-sphere.pdf
+planet-radius-with-two-rulers.pdf
 ```
 
 Before finishing changes to the manuscript, preamble, figures, or build command,
@@ -189,7 +189,8 @@ PDF. The root PDF is the published copy; do not publish a second copy in `build/
 
 ## Repository Hygiene
 
-Track source files, build instructions, and the root `physics-sphere.pdf`.
+Track source files, build instructions, and the root
+`planet-radius-with-two-rulers.pdf`.
 The article PDF is an explicit exception to the usual generated-output rule.
 Do not track LaTeX intermediates, caches, virtual environments, or local scratch
 artifacts unless the user explicitly asks for them.

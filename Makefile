@@ -1,7 +1,7 @@
-ARTICLE  := article.md
+ARTICLE  := planet-radius-with-two-rulers.md
 PREAMBLE := preamble.tex
 FIGURES  := figures/measurement-setup.png
-PDF      := physics-sphere.pdf
+PDF      := planet-radius-with-two-rulers.pdf
 
 .PHONY: pdf clean
 

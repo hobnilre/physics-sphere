@@ -1,6 +1,6 @@
 ---
-title: "Measuring a Planet's Radius from Horizon Curvature"
-subtitle: "An exact two-ruler method"
+title: "Measuring a Planet's Radius with Two Rulers"
+subtitle: "An exact horizon-curvature method"
 author: "Hob Nilre"
 date: "9 September 2026"
 abstract: |

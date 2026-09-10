@@ -1,11 +1,14 @@
 # Measurement Setup Figure
 
-`measurement-setup.png` is the source illustration used by `article.md`.
+`measurement-setup.png` is the source illustration used by
+`planet-radius-with-two-rulers.md`.
 It was generated with the built-in `image_gen` tool using the prompt below.
 The drawing is a schematic, not a numerically plotted representation of the
 horizon equation. Curvature and distances are exaggerated for visibility.
 
 ## Generation Prompt
+
+The original prompt is preserved below, including the article's earlier title.
 
 Use case: scientific-educational.
 Asset type: a clear, publication-ready scientific setup illustration for the Markdown/PDF physics article "Measuring a Planet's Radius from Horizon Curvature".
@@ -19,4 +22,3 @@ RIGHT PANEL, VIEW FROM THE EYE: Main clear frontal view looking through the rule
 
 Footer across the bottom: "Schematic; curvature and distances exaggerated." Then a compact legend in two rows: "h  Eye altitude      D  Eye-to-ruler-plane distance" and "L  Distance between horizon crossings      s  Midpoint rise".
 Constraints: exactly two coherent views; same ruler setup in both; horizontal ruler level; ruler plane vertical and perpendicular to the central horizontal direction; horizon below local eye-level horizontal in the side view; horizon midpoint ABOVE the ruler in the eye view; no inaccurate extra formulas; no small-angle approximations; no circular-arc construction; no mountains, buildings, boats, decorative elements or watermark.
-
