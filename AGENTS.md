@@ -6,7 +6,11 @@ is Markdown, and the PDF is generated from that source.
 
 ## Project Structure
 
-- `article.md`: manuscript source.
+- `article.md`: manuscript source, in standard article form (abstract,
+  numbered sections, numbered equations, reference list).
+- `preamble.tex`: LaTeX typographic preamble passed to Pandoc with
+  `--include-in-header`. Presentation lives here, content lives in
+  `article.md`.
 - `figures/`: source illustrations and their generation prompts.
 - `notes/prior-work.md`: literature search and comparison with this method.
 - `Makefile`: build commands.
@@ -84,6 +88,38 @@ positive:
 
 Check signs carefully when changing prose or equations.
 
+## Manuscript Form
+
+The article is laid out as a short journal paper. Keep that shape:
+
+- YAML front matter carries title, subtitle, author, date, abstract, keywords,
+  and the Pandoc/LaTeX variables (document class, fonts, geometry, section
+  numbering, link colours). Do not put raw LaTeX in `header-includes`; Pandoc
+  parses those entries as Markdown and mangles multi-argument macros. Put
+  preamble code in `preamble.tex` instead.
+- Sections are numbered: Introduction, The Measurement, Exact Horizon Geometry,
+  Inversion for the Planet Radius, Procedure, Accuracy and Systematic Effects,
+  Relation to Earlier Work, Conclusion, References (unnumbered, `{-}`).
+- Substantive results are written as raw LaTeX `equation` environments with
+  `\label{eq:...}` and referred to with `\eqref{eq:...}`. Intermediate algebra
+  stays in `$$...$$` displays or inline `$...$`, unnumbered. Do not put trivial
+  definitions on their own display line.
+- `preamble.tex` suppresses the paragraph indent that would otherwise follow a
+  display equation. Text after a display therefore sets flush left by design.
+
+## Worked Example
+
+Section 6 contains a synthetic worked example. Its values are not an
+observation: `s` is computed from the exact forward relation for an assumed
+`R = 6371.0` km and then rounded to imitate a ruler reading. Keep that
+disclosure in the text; do not present the section as measured data.
+
+If `h`, `D`, `L`, or the assumed `R` changes, recompute every number in the
+section to full precision rather than rescaling by hand: the bracket in `T`,
+`T` itself, `delta`, `R`, the sensitivity value, and the two neighbouring
+readings used for the error band. Keep the printed digits consistent with the
+rounding the text claims.
+
 ## Writing Style
 
 Prefer direct, readable explanations. The article should be understandable as a
@@ -134,7 +170,8 @@ Build the PDF with:
 make pdf
 ```
 
-This runs Pandoc with XeLaTeX and writes:
+This runs Pandoc with XeLaTeX, including `preamble.tex` in the header, and
+writes:
 
 ```text
 build/physics-sphere.pdf

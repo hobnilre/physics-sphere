@@ -1,6 +1,6 @@
 # Prior Work on Measuring Planet Radius from Horizon Curvature
 
-Search date: 2026-09-09.
+Search dates: 2026-09-09, extended 2026-09-10.
 
 ## Finding
 
@@ -144,12 +144,119 @@ chord and sagitta geometry. It estimates altitude assuming the body's radius,
 which is a related inverse problem rather than our unknown-radius experiment.
 It establishes an older instrument-based use of projected horizon curvature.
 
+## Second Search Pass, 2026-09-10
+
+A follow-up search targeted the gaps in the first pass: the classical dip
+literature, navigational instruments, physics-education determinations of the
+Earth's radius, and material published since. Five items were found. Three are
+now cited in the article; two are recorded here as out of scope.
+
+### Cited: al-Biruni, 11th century
+
+The article's radius inversion
+
+$$
+R=\frac{h\cos\delta}{1-\cos\delta}
+$$
+
+is al-Biruni's result. He measured the dip of the sea horizon from a hill of
+known height at the fort of Nandana, in present-day Pakistan, and inverted it
+for the Earth's radius, obtaining a value about 2% from the modern radius of
+curvature at that latitude. This was the most serious omission in the first
+pass: the article previously derived the formula without attributing it.
+
+Secondary source used: Amelia Carolina Sparavigna, [The Science of
+al-Biruni](https://arxiv.org/abs/1312.7288), *International Journal of Sciences*
+2(12), 52-60 (2013), [DOI: 10.18483/ijSci.364](https://doi.org/10.18483/ijSci.364).
+Sparavigna describes the method and the numbers but does not print the formula;
+the formula itself is standard and follows from the article's own equation for
+`cos delta`. He made no allowance for refraction, which is discussed below.
+
+### Cited: E. Moll, 1906 lecture, published 1931
+
+E. Moll, [Measurement of the dip of the
+horizon](https://journals.lib.unb.ca/index.php/ihr/article/view/28507),
+*The International Hydrographic Review* VIII(1) (1931); translation of a lecture
+delivered at the Verein Deutscher Seeschiffer, Hamburg, 3 October 1906.
+
+Establishes that measuring the dip directly was a recognised instrument problem
+with dedicated solutions (prism dip meters, the Pulfrich horizon meter). It also
+supplies an empirical statement useful for the accuracy section: observed dips
+depart from tabulated values by 10 arc-minutes and more under anomalous
+refraction. This is a measured, citable magnitude rather than a modelled one.
+
+### Cited: Walter Bislin, curvature simulator
+
+Walter Bislin, [Finding the curvature of the
+Earth](https://walter.bislins.ch/bloge/index.asp?page=Finding+the+curvature+of+the+Earth)
+and the [Advanced Earth Curvature
+Calculator](https://walter.bislins.ch/bloge/index.asp?page=advanced+earth+curvature+calculator),
+created 27 August 2019, maintained since. Web resource, not peer reviewed.
+
+This is the closest match to our *observable* found in either pass. His
+`HorLftRgtDrop` is defined as the drop of the horizon relative to the line
+joining the two points where the curved horizon approaches the edges of the
+frame, which is our `s`. It includes refraction as an adjustable parameter.
+Two differences matter: the model runs forward from an assumed radius rather
+than inverting for it, and it treats the horizon as a circular arc about the
+eye rather than using the exact hyperbolic projection.
+
+He also has a page on [measuring the Earth's radius like al-Biruni taking
+refraction into account](https://walter.bislins.ch/bloge/index.asp?page=Measuring+Earths+Radius+like+Al-Biruni+taking+Refraction+into+account),
+which states that ignoring refraction makes the inferred radius about 17% too
+big at standard refraction. That figure agrees with the effective-radius
+argument in the article's accuracy section, computed independently from Young's
+`k` of about 1/7, so the article does not need to cite the blog for the number.
+
+### Not cited: Dietrich Zawischa, perspective page
+
+Dietrich Zawischa, [Perspective and curvature of the earth's
+surface](https://www.itp.uni-hannover.de/fileadmin/itp/emeritus/zawischa/static_html/perspex.html),
+ITP Hannover, undated. States that the horizon sight cone cuts a flat image
+plane in a hyperbola, but gives no derivation, no explicit curve equation, no
+midpoint rise, and no inversion for the radius. Strictly weaker than Kinlen,
+which the article already cites for the same point. Recorded for completeness.
+
+### Not cited: other radius determinations from a single observation
+
+Two further physics-education results determine the Earth's radius, but from
+different observables, and citing them would broaden the article past the scope
+set in `AGENTS.md`:
+
+- Pere Roura and Josep Calbo, [Measurement of the Earth's radius based on
+  historical evidence of its curvature](https://iopscience.iop.org/article/10.1088/0031-9120/40/5/006),
+  *Physics Education* 40(5), 455 (2005). Uses the disappearance of objects
+  beyond the horizon and the visible fraction of distant tall objects as a
+  function of observer height. Reports R = 6600 +- 600 km at best. This is the
+  horizon-distance observable the manuscript deliberately excludes.
+- [Earth's radius from a single sunrise image: a classroom-ready
+  activity](https://iopscience.iop.org/article/10.1088/1361-6404/ae6427),
+  *European Journal of Physics* (2026). Uses a photograph of Mont Blanc's
+  shadow from Geneva together with the solar elevation. Unrelated observable.
+
+If the article is ever widened into a survey of ways to measure the radius from
+a single station, both belong in it.
+
+### Still not found
+
+No source was located that combines the horizontal ruler, the midpoint vertical
+ruler, the measured eye-to-plane distance `D`, and an exact inversion for `R`.
+Searches for the chord-and-sagitta straightedge construction return the physical
+radius-of-curvature measurement `R = S^2/(8D) + D/2` applied to real arcs, which
+is a different problem from the projected horizon. The conclusion of the first
+pass is unchanged: the arrangement was not found, and that is not evidence that
+it has never been published.
+
 ## Implications for the Manuscript
 
 An appropriate description of our contribution is an explicit two-ruler
 implementation and exact derivation of a known horizon-curvature measurement
 principle. Avoid claiming to have invented the principle, the projected
-hyperbola, or the idea of using the bow to infer planet size.
+hyperbola, the radius-from-dip inversion, or the idea of using the bow to infer
+planet size. The inversion is al-Biruni's, the projection is at least as old as
+Kinlen's post, and the specific midpoint displacement is modelled numerically by
+Bislin. What is offered here is the two-ruler instrument and the exact,
+approximation-free path from four lengths to `R`.
 
 For related-work citations, Howe is the closest physical ruler comparison,
 Kinlen is the closest mathematical match, and Cyrulies supplies a recent
