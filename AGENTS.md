@@ -13,9 +13,11 @@ is Markdown, and the PDF is generated from that source.
   `article.md`.
 - `figures/`: source illustrations and their generation prompts.
 - `notes/prior-work.md`: literature search and comparison with this method.
+- `README.md`: entry point with links to the PDF and manuscript source.
 - `Makefile`: build commands.
-- `build/physics-sphere.pdf`: generated PDF output, ignored by git.
-- `.gitignore`: excludes generated build output.
+- `physics-sphere.pdf`: generated article PDF in the repository root, tracked
+  in git so readers can find it on GitHub.
+- `.gitignore`: excludes scratch output in `build/`.
 
 ## Article Scope
 
@@ -174,17 +176,23 @@ This runs Pandoc with XeLaTeX, including `preamble.tex` in the header, and
 writes:
 
 ```text
-build/physics-sphere.pdf
+physics-sphere.pdf
 ```
 
-Before finishing manuscript edits, run `make pdf` and confirm the PDF is
-created successfully. If the build cannot be run, say so in the final response.
+Before finishing changes to the manuscript, preamble, figures, or build command,
+run `make pdf` and confirm the PDF is created successfully. Commit the updated
+root PDF alongside those changes. Use `make -B pdf` to force a rebuild when
+needed. If the build cannot be run, say so in the final response.
+
+`make clean` removes scratch output in `build/` but preserves the tracked root
+PDF. The root PDF is the published copy; do not publish a second copy in `build/`.
 
 ## Repository Hygiene
 
-Track source files and build instructions. Do not track generated PDF output,
-LaTeX intermediates, caches, virtual environments, or local scratch artifacts
-unless the user explicitly asks for them.
+Track source files, build instructions, and the root `physics-sphere.pdf`.
+The article PDF is an explicit exception to the usual generated-output rule.
+Do not track LaTeX intermediates, caches, virtual environments, or local scratch
+artifacts unless the user explicitly asks for them.
 
 Keep changes scoped to the article and its build path. If adding examples,
 figures, scripts, or measurement worksheets later, put them in named project

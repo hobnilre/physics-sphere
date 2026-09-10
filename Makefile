@@ -1,14 +1,13 @@
 ARTICLE  := article.md
 PREAMBLE := preamble.tex
 FIGURES  := figures/measurement-setup.png
-PDF      := build/physics-sphere.pdf
+PDF      := physics-sphere.pdf
 
 .PHONY: pdf clean
 
 pdf: $(PDF)
 
-$(PDF): $(ARTICLE) $(PREAMBLE) $(FIGURES)
-	mkdir -p $(dir $@)
+$(PDF): $(ARTICLE) $(PREAMBLE) $(FIGURES) Makefile
 	pandoc $(ARTICLE) \
 		--from markdown+tex_math_dollars \
 		--pdf-engine=xelatex \
