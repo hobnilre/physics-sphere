@@ -46,7 +46,9 @@ urlcolor: MidnightBlue
 citecolor: MidnightBlue
 ---
 
-[Latest PDF on GitHub][article-pdf]
+Latest PDF on GitHub:
+
+<https://github.com/hobnilre/physics-sphere/blob/main/planet-radius-with-two-rulers.pdf>
 
 # Introduction
 
@@ -597,7 +599,6 @@ a way that repeated measurements alone cannot reveal.
 
 \endgroup
 
-[article-pdf]: https://github.com/hobnilre/physics-sphere/blob/main/planet-radius-with-two-rulers.pdf
 [bislin]: https://walter.bislins.ch/bloge/index.asp?page=Finding+the+curvature+of+the+Earth
 [moll]: https://journals.lib.unb.ca/index.php/ihr/article/view/28507
 [sparavigna]: https://arxiv.org/abs/1312.7288
