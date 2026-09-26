@@ -1,7 +1,7 @@
 ---
 title: "Measuring a Planet's Radius with Two Rulers"
 subtitle: "An exact horizon-curvature method"
-author: "Hob Nilre"
+author: "Hob Nilre & Bo C. Herlin"
 date: "9 September 2026"
 abstract: |
   The visible horizon of a spherical planet is depressed below the observer's
