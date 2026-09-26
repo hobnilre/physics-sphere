@@ -1,12 +1,6 @@
 # physics-sphere
 
-**Measuring a Planet's Radius with Two Rulers**
-
-*An exact horizon-curvature method*
-
-**[Read the article (PDF)](planet-radius-with-two-rulers.pdf)**
-
-[Markdown source](planet-radius-with-two-rulers.md) | [Prior-work research](notes/prior-work.md)
+Measuring a Planet's Radius with Two Rulers.
 
 ## What this article adds, and why it matters
 
@@ -38,15 +32,6 @@ together in a directly measurable arrangement:
   atmospheric refraction show what the ideal spherical model does and does not
   establish. The article reports no experimental observation.
 
-## Build
+## Article
 
-Requires Make, Pandoc, and a TeX installation with XeLaTeX, the packages used in
-`preamble.tex`, and the TeX Gyre fonts specified in
-`planet-radius-with-two-rulers.md`.
-
-```bash
-make pdf
-```
-
-This updates `planet-radius-with-two-rulers.pdf` in the repository root. Commit
-the rebuilt PDF with any changes to the article, figures, or typesetting.
+[Read the article (PDF)](planet-radius-with-two-rulers.pdf) · [Manuscript source](planet-radius-with-two-rulers.md)
