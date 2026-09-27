@@ -2,10 +2,17 @@
 
 Measuring a Planet's Radius with Two Rulers.
 
+The open experimental questions are the precision achievable with the fixed
+two-ruler assembly, how to separate atmospheric displacement from geometric
+radius, and whether signed discrepancies persist after independent checks.
+The article establishes an exact inversion for a spherical surface and straight
+light rays. Its example is synthetic; instrument validation and field
+measurements remain to be performed.
+
 ## What this article adds, and why it matters
 
-The article presents a complete, exact procedure for inferring a spherical
-planet's radius from the curvature of its visible horizon against two rulers.
+The article derives the radius from horizon curvature against two rulers under
+that ideal model and specifies an experimental procedure to test the method.
 Horizon dip, photographic curvature measurements, and equivalent projected
 horizon geometry all have prior work; the article does not claim that the
 general principle is new. Its contribution is to put the following elements
@@ -27,10 +34,11 @@ together in a directly measurable arrangement:
   camera, a dedicated angle-measuring instrument, or a separately calibrated
   image plane.
 
-- **A candid account of the method's limits.** A synthetic worked example,
-  sensitivity calculation, and discussion of levelling, target placement, and
-  atmospheric refraction show what the ideal spherical model does and does not
-  establish. The article reports no experimental observation.
+- **Exact uncertainty bounds and reporting unresolved results.** Sensitivities to all
+  four lengths, finite interval bounds, and signed residuals support tests of
+  the instrument. Repeated ruler settings cannot by themselves separate
+  refraction from radius. The procedure requires reporting discrepancies that
+  remain unresolved, including their signs, magnitudes, conditions, and checks.
 
 ## Article
 

@@ -1,6 +1,8 @@
 # Prior Work on Measuring Planet Radius from Horizon Curvature
 
-Search dates: 2026-09-09, extended 2026-09-10.
+Search dates: 2026-09-09, extended 2026-09-10. The Bislin, Kinlen,
+Sparavigna, and Young comparisons were checked again on 2026-09-27; this was
+a targeted verification, not an additional exhaustive search.
 
 ## Finding
 
@@ -159,18 +161,22 @@ $$
 R=\frac{h\cos\delta}{1-\cos\delta}
 $$
 
-is al-Biruni's result. He measured the dip of the sea horizon from a hill of
-known height at the fort of Nandana, in present-day Pakistan, and inverted it
-for the Earth's radius, obtaining a value about 2% from the modern radius of
-curvature at that latitude. This was the most serious omission in the first
-pass: the article previously derived the formula without attributing it.
+is al-Biruni's result. The cited account describes measuring hill height and
+horizon dip at the fort of Nandana, in present-day Pakistan, and inverting the
+dip for the Earth's radius. Sparavigna reports a difference of about 2% from a
+reference radius of curvature, using a specified conversion of the historical
+length unit. The account does not identify the observed horizon as a sea
+horizon; that description has been corrected in the manuscript. The numerical
+comparison should be attributed to this historical reconstruction, not used
+as evidence that refraction is negligible. The first search pass had omitted
+the attribution for the radius-from-dip inversion.
 
 Secondary source used: Amelia Carolina Sparavigna, [The Science of
 al-Biruni](https://arxiv.org/abs/1312.7288), *International Journal of Sciences*
 2(12), 52-60 (2013), [DOI: 10.18483/ijSci.364](https://doi.org/10.18483/ijSci.364).
 Sparavigna describes the method and the numbers but does not print the formula;
 the formula itself is standard and follows from the article's own equation for
-`cos delta`. He made no allowance for refraction, which is discussed below.
+`cos delta`. That geometric inversion contains no atmospheric correction.
 
 ### Cited: E. Moll, 1906 lecture, published 1931
 
@@ -193,20 +199,45 @@ and the [Advanced Earth Curvature
 Calculator](https://walter.bislins.ch/bloge/index.asp?page=advanced+earth+curvature+calculator),
 created 27 August 2019, maintained since. Web resource, not peer reviewed.
 
-This is the closest match to our *observable* found in either pass. His
-`HorLftRgtDrop` is defined as the drop of the horizon relative to the line
-joining the two points where the curved horizon approaches the edges of the
-frame, which is our `s`. It includes refraction as an adjustable parameter.
-Two differences matter: the model runs forward from an assumed radius rather
-than inverting for it, and it treats the horizon as a circular arc about the
-eye rather than using the exact hyperbolic projection.
+This is a related angular observable, with an important difference in its
+reported length. His [Calculating left-right Horizon
+Drop](https://walter.bislins.ch/bloge/index.asp?page=Calculating+left-right+Horizon+Drop),
+created 17 February 2020, defines an angular drop and reports the arc length
+$p=v\psi$ at the eye-to-horizon distance $v$ (equation 10; symbols renamed
+here to preserve the manuscript's $\delta$). The
+[source code](https://walter.bislins.ch/bloge/index.asp?page=Source+Code:+Curvature+App)
+confirms this distance-times-angle definition of `horizonLftRgtDrop`.
+The derivation distinguishes this arc length from perpendicular lengths.
+
+The earlier comparison incorrectly equated that output with our $s$ and
+treated the reporting arc as evidence of a circular projected-horizon model.
+For matched endpoint rays in our vertical plane, our own exact conversion is
+
+$$
+\psi=\arctan\!\left(T\frac{\sqrt{D^2+a^2}}{D}\right)-\arctan T,
+\qquad
+s=D\bigl[\tan(\delta+\psi)-\tan\delta\bigr],
+\qquad a=L/2.
+$$
+
+Here the endpoint chord's midpoint is $(0,D,z_e)$, with depression
+$\arctan(-z_e/D)$; subtracting the central depression gives $\psi$.
+This explains the relation without equating $p$ with $s$ or $v$ with $D$.
+It is not a validation of every field-of-view conversion or refraction
+assumption in the simulator. The model includes adjustable refraction and
+runs forward from an assumed radius, while our four-length method inverts
+for radius under the spherical, straight-ray assumptions.
 
 He also has a page on [measuring the Earth's radius like al-Biruni taking
 refraction into account](https://walter.bislins.ch/bloge/index.asp?page=Measuring+Earths+Radius+like+Al-Biruni+taking+Refraction+into+account),
 which states that ignoring refraction makes the inferred radius about 17% too
-big at standard refraction. That figure agrees with the effective-radius
-argument in the article's accuracy section, computed independently from Young's
-`k` of about 1/7, so the article does not need to cite the blog for the number.
+big at standard refraction. This is a model-dependent estimate, not a measured
+correction for our proposed assembly or its synthetic 2000 m example.
+[Young's discussion](https://aty.sdsu.edu/explain/atmos_refr/dip.html) describes
+the assumptions and variability of such refraction models. The manuscript now
+uses an exact inversion conditional on the unknown dip displacement and leaves
+its independent determination as an open problem. It does not import the
+effective-radius approximation into its derivation.
 
 ### Not cited: Dietrich Zawischa, perspective page
 
@@ -254,9 +285,11 @@ implementation and exact derivation of a known horizon-curvature measurement
 principle. Avoid claiming to have invented the principle, the projected
 hyperbola, the radius-from-dip inversion, or the idea of using the bow to infer
 planet size. The inversion is al-Biruni's, the projection is at least as old as
-Kinlen's post, and the specific midpoint displacement is modelled numerically by
-Bislin. What is offered here is the two-ruler instrument and the exact,
-approximation-free path from four lengths to `R`.
+Kinlen's post, and a related angular bow with an arc-length output is modelled
+by Bislin. What is offered here is the proposed two-ruler instrument and the
+exact path from four lengths to `R` for a spherical surface and straight
+rays. Achieved instrument uncertainty and the separation of atmospheric
+displacement from the physical radius remain open experimental questions.
 
 For related-work citations, Howe is the closest physical ruler comparison,
 Kinlen is the closest mathematical match, and Cyrulies supplies a recent
