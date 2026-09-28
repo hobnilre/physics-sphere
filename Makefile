@@ -8,10 +8,12 @@ PDF      := planet-radius-with-two-rulers.pdf
 pdf: $(PDF)
 
 $(PDF): $(ARTICLE) $(PREAMBLE) $(FIGURES) Makefile
-	pandoc $(ARTICLE) \
+	mkdir -p build
+	printf '\\newcommand{\\pdfbuildtimestamp}{%s}\n' "$$(date -u '+%Y-%m-%d %H:%M:%S UTC')" > build/pdf-build-time.tex
+	TMPDIR="$(CURDIR)/build" pandoc $(ARTICLE) \
 		--from markdown+tex_math_dollars \
 		--pdf-engine=xelatex \
-		--include-in-header=$(PREAMBLE) \
+		--include-in-header=$(PREAMBLE) --include-in-header=build/pdf-build-time.tex \
 		-o $@
 
 clean:

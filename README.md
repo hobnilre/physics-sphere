@@ -43,3 +43,5 @@ together in a directly measurable arrangement:
 ## Article
 
 [Read the article (PDF)](planet-radius-with-two-rulers.pdf) · [Manuscript source](planet-radius-with-two-rulers.md)
+
+`make pdf` records the UTC build time on the first page, followed by this repository’s GitHub link. The timestamp updates when the PDF is rebuilt; an up-to-date PDF keeps its existing value.
