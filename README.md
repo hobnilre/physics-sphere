@@ -1,6 +1,6 @@
-# physics-sphere
+# Measuring a Planet's Radius with Two Rulers
 
-Measuring a Planet's Radius with Two Rulers.
+An exact horizon-curvature method.
 
 The open experimental questions are the precision achievable with the fixed
 two-ruler assembly, how to separate atmospheric displacement from geometric
@@ -40,8 +40,17 @@ together in a directly measurable arrangement:
   refraction from radius. The procedure requires reporting discrepancies that
   remain unresolved, including their signs, magnitudes, conditions, and checks.
 
-## Article
+## Article and build
 
 [Read the article (PDF)](planet-radius-with-two-rulers.pdf) · [Manuscript source](planet-radius-with-two-rulers.md)
 
-`make pdf` records the UTC build time on the first page, followed by this repository’s GitHub link. The timestamp updates when the PDF is rebuilt; an up-to-date PDF keeps its existing value.
+Install GNU Make, Pandoc, XeLaTeX and the TeX Gyre fonts, including the LaTeX
+packages used by `preamble.tex`. Run `make pdf`
+from this repository. The build uses only files in this checkout; no sibling
+repository or private working files are needed.
+
+The first page gives the PDF creation time in UTC, followed by this repository's
+GitHub link. An up-to-date PDF keeps its timestamp; `make -B pdf` forces a rebuild.
+Intermediates go to ignored `build/` by default; `BUILD_DIR=/absolute/path`
+selects another location. `make clean` removes that build directory and keeps
+the published PDF and figure assets.
