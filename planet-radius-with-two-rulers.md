@@ -2,7 +2,7 @@
 title: "Measuring a Planet's Radius with Two Rulers"
 subtitle: "An exact horizon-curvature method"
 author: "Hob Nilre & Bo C. Herlin"
-date: "27 September 2026"
+date: "2026-09-09"
 abstract: |
   The open experimental problem is whether two fixed rulers can recover a
   planetary radius with quantified reading, alignment, and atmospheric
