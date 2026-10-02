@@ -9,9 +9,9 @@ The article establishes an exact inversion for a spherical surface and straight
 light rays. Its example is synthetic; instrument validation and field
 measurements remain to be performed.
 
-## Kort version på svenska
+## Artikeln på svenska
 
-[Läs den korta svenska versionen för vänner och familj](https://github.com/hobnilre/physics-sphere-sv).
+[Läs artikeln på svenska](https://github.com/hobnilre/physics-sphere-sv).
 
 ## What this article adds, and why it matters
 
