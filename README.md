@@ -9,6 +9,11 @@ The article establishes an exact inversion for a spherical surface and straight
 light rays. Its example is synthetic; instrument validation and field
 measurements remain to be performed.
 
+## Kort version på svenska
+
+[Läs en kort, lättillgänglig version på svenska](planet-radius-with-two-rulers-svenska.md).
+Den sammanfattar huvudartikeln för läsare utan teknisk bakgrund.
+
 ## What this article adds, and why it matters
 
 The article derives the radius from horizon curvature against two rulers under
