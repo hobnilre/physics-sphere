@@ -11,8 +11,7 @@ measurements remain to be performed.
 
 ## Kort version på svenska
 
-[Läs en kort, lättillgänglig version på svenska](planet-radius-with-two-rulers-svenska.md).
-Den sammanfattar huvudartikeln för läsare utan teknisk bakgrund.
+[Läs den korta svenska versionen för vänner och familj](https://github.com/hobnilre/physics-sphere-sv).
 
 ## What this article adds, and why it matters
 
