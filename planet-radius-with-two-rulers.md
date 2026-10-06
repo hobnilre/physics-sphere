@@ -321,6 +321,8 @@ measures the analogous displacement from three horizon points in a photograph;
 the circular-sagitta model he introduces later is not the exact hyperbolic
 projection derived here.
 
+The rulers measure a projected horizon shape, not a curve laid on the planet's surface. Its rise and viewing geometry provide the depression angle used in the radius calculation.
+
 # Inversion for the Planet Radius
 
 ## The depression angle from the ruler readings
@@ -409,6 +411,8 @@ positive-radius inversion's domain and must not be inserted into
 their uncertainties, and observing conditions for the discrepancy analysis in
 Section 7. A positive reading whose allowed interval reaches $s=0$ gives no
 finite upper radius bound from these measurements alone.
+
+The four lengths determine the radius only within the stated straight-ray, spherical model. Atmospheric displacement and measurement error still need independent assessment.
 
 # Procedure
 
@@ -530,6 +534,8 @@ relative reading uncertainty if the absolute uncertainty in $s$ is held fixed;
 the other contributions still require assessment. This is the reason for the
 choice $L=D$ in the example.
 
+
+A small change in the tiny rise can produce a larger relative change in the inferred radius. The example demonstrates this sensitivity; it does not measure the instrument's actual reading accuracy.
 
 # Accuracy and Systematic Effects
 
@@ -655,6 +661,8 @@ tabulated dips of ten arcminutes and more, but that report does not establish
 the displacement for this proposed experiment. Agreement with a known radius,
 including the historical comparison for al-Bīrūnī, does not independently
 measure refraction.
+
+Repeated ruler settings can test reading and projection consistency while estimating the same apparent horizon angle. They do not by themselves separate the planet's radius from the atmosphere's effect.
 
 ## Signed residuals and unresolved results
 
