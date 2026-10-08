@@ -9,10 +9,6 @@ The article establishes an exact inversion for a spherical surface and straight
 light rays. Its example is synthetic; instrument validation and field
 measurements remain to be performed.
 
-## Artikeln på svenska
-
-[Läs artikeln på svenska](https://github.com/hobnilre/physics-sphere-sv).
-
 ## What this article adds, and why it matters
 
 The article derives the radius from horizon curvature against two rulers under
@@ -50,7 +46,9 @@ together in a directly measurable arrangement:
 
 Install GNU Make, Pandoc, XeLaTeX and the TeX Gyre fonts, including the LaTeX
 packages used by `preamble.tex`. Run `make pdf`
-from this repository. The build uses only files in this checkout; no sibling
+from this repository to build the original and all included translations.
+Each language directory has a reader-facing README and links to its article.
+The build uses only files in this checkout; no sibling
 repository or private working files are needed.
 
 The first page gives the PDF creation time in UTC, followed by this repository's
@@ -62,3 +60,11 @@ the published PDF and figure assets.
 The title date records the first version. Keep `ARTICLE_DATE` in the Makefile
 and the manuscript's `date` fixed across revisions. The separate `PDF created`
 timestamp continues to record each PDF rebuild in UTC.
+
+<!-- article-tools:translations:start -->
+## Translations
+
+- Español: [PDF](es/planet-radius-with-two-rulers-es.pdf) · [Markdown](es/planet-radius-with-two-rulers-es.md)
+- Svenska: [PDF](sv/planet-radius-with-two-rulers-sv.pdf) · [Markdown](sv/planet-radius-with-two-rulers-sv.md)
+
+<!-- article-tools:translations:end -->

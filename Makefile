@@ -3,6 +3,8 @@ ARTICLE := planet-radius-with-two-rulers.md
 ARTICLE_DATE := 2026-09-09
 PDF := planet-radius-with-two-rulers.pdf
 PREAMBLE := preamble.tex
+LOCAL_PREAMBLE := preamble-local.tex
+STYLE := article-style.yaml
 FIGURES := figures/measurement-setup.png
 BUILD_DIR ?= build
 BUILD_ABS := $(abspath $(BUILD_DIR))
@@ -27,3 +29,5 @@ figures/%.pdf: figures/%.tex figures/figure-style.tex
 
 clean:
 	rm -rf -- "$(BUILD_ABS)"
+
+-include translations.mk
